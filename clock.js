@@ -1,8 +1,8 @@
 var app = {
 
     initialize: function() {
-        var canvas = $("clock");
-        var ctx = canvas.getContext('2d');
+        var canvas = document.getElementById("clock");
+        var ctx = canvas.getContext("2d");
         ctx.fillStyle = "rgb(200, 0, 0)";
         ctx.fillRect(10, 10, 50, 50);
         $("afterDraw").show();
@@ -10,6 +10,11 @@ var app = {
 
 };
 
-function onLoad() {
-    document.addEventListener("deviceready", app.initialize, false);
+if (window.PhoneGap) {
+    document.addEventListener("deviceready", function() {app.initialize();}, false);
+} else {
+    $(document).ready(function() {
+        app.initialize();
+    })
 }
+
