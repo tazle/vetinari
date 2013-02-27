@@ -11,5 +11,5 @@ var app = {
 };
 
 function onLoad() {
-    document.addEventListener("deviceready", onDeviceReady, false);
+    document.addEventListener("deviceready", app.initialize, false);
 }
